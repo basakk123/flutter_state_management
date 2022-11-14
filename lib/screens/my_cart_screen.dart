@@ -12,16 +12,27 @@ class MyCartScreen extends StatelessWidget {
       body: ListView(
         children: [
           SizedBox(height: large_gap),
-          MyListItem(),
+          Row(
+            children: [
+              MyListItem(),
+              buildTextButton(),
+            ],
+          ),
           SizedBox(height: medium_gap),
-          TextButton(
-            style: ButtonStyle(
-              maximumSize: MaterialStateProperty.all(
-                Size.fromWidth(10),
+          Flexible(
+            child: TextButton(
+              child: Text(
+                "Buy",
+                style: TextStyle(
+                  color: Colors.blue[900],
+                  fontSize: 30,
+                ),
               ),
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.transparent,
+              ),
+              onPressed: () {},
             ),
-            onPressed: () {},
-            child: Text("Buy"),
           ),
         ],
       ),
@@ -46,6 +57,24 @@ class MyCartScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Flexible buildTextButton() {
+    return Flexible(
+      child: TextButton(
+        child: Text(
+          "Add",
+          style: TextStyle(
+            color: Colors.blue[900],
+            fontSize: 30,
+          ),
+        ),
+        style: TextButton.styleFrom(
+          backgroundColor: Colors.transparent,
+        ),
+        onPressed: () {},
       ),
     );
   }
